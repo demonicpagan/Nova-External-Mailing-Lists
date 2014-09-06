@@ -55,6 +55,7 @@ class Write extends Nova_write {
 				//$this->email->from($from_email, $from_name);
 				$this->email->from(Util::email_sender(), $from_name);
 				$this->email->to($to);
+				$this->email->reply_to($from_email);
 				$this->email->cc($this->settings->get_setting('external_mailing_list'));
 				$this->email->subject($this->options['email_subject'] .' '. $subject);
 				$this->email->message($message);
@@ -99,6 +100,7 @@ class Write extends Nova_write {
 				// set the parameters for sending the email
 				$this->email->from(Util::email_sender(), $from_name);
 				$this->email->to($to);
+				$this->email->reply_to($from_email);
 				$this->email->subject($this->options['email_subject'] .' '. lang('email_subject_news_pending'));
 				$this->email->message($message);
 			break;
@@ -137,6 +139,7 @@ class Write extends Nova_write {
 				// set the parameters for sending the email
 				$this->email->from(Util::email_sender(), $from_name);
 				$this->email->to($to);
+				$this->email->reply_to($from_email);
 				$this->email->cc($this->settings->get_setting('external_mailing_list'));
 				$this->email->subject($this->options['email_subject'] .' '. $subject);
 				$this->email->message($message);
@@ -179,6 +182,7 @@ class Write extends Nova_write {
 				// set the parameters for sending the email
 				$this->email->from(Util::email_sender(), $from_name);
 				$this->email->to($to);
+				$this->email->reply_to($from_email);
 				$this->email->subject($this->options['email_subject'] .' '. lang('email_subject_log_pending'));
 				$this->email->message($message);
 			break;
@@ -234,6 +238,7 @@ class Write extends Nova_write {
 				// set the parameters for sending the email
 				$this->email->from(Util::email_sender(), $from_name);
 				$this->email->to($to);
+				$this->email->reply_to($from_email);
 				$this->email->cc($this->settings->get_setting('external_mailing_list'));
 				$this->email->subject($this->options['email_subject'] .' '. $subject);
 				$this->email->message($message);
@@ -297,6 +302,7 @@ class Write extends Nova_write {
 				// set the parameters for sending the email
 				$this->email->from(Util::email_sender(), $from_name);
 				$this->email->to($to);
+				$this->email->reply_to($from_email);
 				$this->email->subject($this->options['email_subject'] .' '. $subject);
 				$this->email->message($message);
 			break;
@@ -347,6 +353,7 @@ class Write extends Nova_write {
 				// set the parameters for sending the email
 				$this->email->from(Util::email_sender(), $from_name);
 				$this->email->to($to);
+				$this->email->reply_to($from_email);
 				$this->email->subject($this->options['email_subject'] .' '. lang('email_subject_post_pending'));
 				$this->email->message($message);
 			break;
@@ -418,6 +425,7 @@ class Write extends Nova_write {
 				// set the parameters for sending the email
 				$this->email->from(Util::email_sender(), $from_name);
 				$this->email->to($to);
+				$this->email->reply_to($from_email);
 				$this->email->subject($this->options['email_subject'] .' '. $subject);
 				$this->email->message($message);
 			break;

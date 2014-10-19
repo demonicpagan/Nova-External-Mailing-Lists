@@ -69,6 +69,10 @@ You can always get the latest source from <http://github.com/demonicpagan/Nova-E
 
 Changelog - Dates are in Epoch time
 -----------------------------------
+1413681439:
+
+*	Resolved bug issue #1 reported by @mooeypoo from #USS-Vindicator on KDFSnet.
+
 1410003966:
 
 *	Updated files to be compatible with Nova 2.3.2

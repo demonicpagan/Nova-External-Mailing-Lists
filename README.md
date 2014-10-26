@@ -36,6 +36,10 @@ that is totally your choice and you are free to do so. You can read how this MOD
 the existing one if you haven't already modified this file. If you already have changes in this file, it's best 
 that you just take the contents of this file and add it into your existing write.php file.
 
+7. Upload application/controllers/manage.php to your application/controllers folder of your Nova install replacing
+the existing one if you haven't already modified this file. If you already have changes in this file, it's best
+that you just take the contents of this file and add it inot your existing manage.php file.
+
 ***UCIP MEMBERS***<br />
 You will need to modify the application/controllers/write.php to avoid getting double emails (one from Nova, one from
 UCIP mailing list).

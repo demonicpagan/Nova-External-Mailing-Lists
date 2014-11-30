@@ -27,11 +27,9 @@ that is totally your choice and you are free to do so. You can read how this MOD
    Example (the setting key in this example is what is used in write.php):
 
     Label: External Mailing List
-	Setting Key: external_mailing_list (this is only an example, make this whatever you want, just remember it for
-	 use in write.php)
+    Setting Key: external_mailing_list (this is only an example, make this whatever you want, just remember it for use in write.php)
 
-	(You could create 3 different settings for the different kinds of posts if you want, just repeat steps 4 and 5 as
-	needed.)
+	(You could create 3 different settings for the different kinds of posts if you want, just repeat steps 4 and 5 as needed.)
 
 6. Upload application/controllers/write.php to your application/controllers folder of your Nova install replacing 
 the existing one if you haven't already modified this file. If you already have changes in this file, it's best 

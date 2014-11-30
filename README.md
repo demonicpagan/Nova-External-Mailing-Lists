@@ -26,7 +26,7 @@ that is totally your choice and you are free to do so. You can read how this MOD
 5. Fill in the Label text box and Setting Key text box.
    Example (the setting key in this example is what is used in write.php):
 
-    Label: External Mailing List
+    Label: External Mailing List 
     Setting Key: external_mailing_list (this is only an example, make this whatever you want, just remember it for use in write.php)
 
 	(You could create 3 different settings for the different kinds of posts if you want, just repeat steps 4 and 5 as needed.)

@@ -25,8 +25,9 @@ that is totally your choice and you are free to do so. You can read how this MOD
 
 5. Fill in the Label text box and Setting Key text box.
    Example (the setting key in this example is what is used in write.php):
-     Label: External Mailing List
-	 Setting Key: external_mailing_list (this is only an example, make this whatever you want, just remember it for
+     	Label: External Mailing List
+	
+	Setting Key: external_mailing_list (this is only an example, make this whatever you want, just remember it for
 	 use in write.php)
 
 	(You could create 3 different settings for the different kinds of posts if you want, just repeat steps 4 and 5 as
@@ -48,23 +49,11 @@ Comment out every occurance of $this->email->cc($this->settings->get_setting('ex
 
 Change the following lines
 
-<table>
-	<tr>
-		<th>Line</th><th>From</th><th>To</th>
-	</tr>
-	<tr>
-		<td>57</td><td>$this->email->to($to);</td>
-		<td>$this->email->to($this->settings->get_setting('external_mailing_list'));</td>
-	</tr>
-	<tr>
-		<td>139</td><td>$this->email->to($to);</td>
-		<td>$this->email->to($this->settings->get_setting('external_mailing_list'));</td>
-	</tr>
-	<tr>
-		<td>236</td><td>$this->email->to($to);</td>
-		<td>$this->email->to($this->settings->get_setting('external_mailing_list'));</td>
-	</tr>
-</table>
+| Line 	|          From          	|                                    To                                    	|
+|:----:	|:----------------------:	|:------------------------------------------------------------------------:	|
+| 57   	| $this->email->to($to); 	| $this->email->to($this->settings->get_setting('external_mailing_list')); 	|
+| 139  	| $this->email->to($to); 	| $this->email->to($this->settings->get_setting('external_mailing_list')); 	|
+| 236  	| $this->email->to($to); 	| $this->email->to($this->settings->get_setting('external_mailing_list')); 	|
 
 If you experience any issues please submit a bug report on
 <http://github.com/demonicpagan/Nova-External-Mailing-Lists/issues>.

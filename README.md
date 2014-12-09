@@ -45,13 +45,21 @@ UCIP mailing list).
 
 Comment out every occurance of $this->email->cc($this->settings->get_setting('external_mailing_list');
 
-Change the following lines
+Change the following lines (write.php)
 
 | Line 	|          From          	|                                    To                                    	|
 |:----:	|:----------------------:	|:------------------------------------------------------------------------:	|
 | 57   	| $this->email->to($to); 	| $this->email->to($this->settings->get_setting('external_mailing_list')); 	|
-| 139  	| $this->email->to($to); 	| $this->email->to($this->settings->get_setting('external_mailing_list')); 	|
-| 236  	| $this->email->to($to); 	| $this->email->to($this->settings->get_setting('external_mailing_list')); 	|
+| 141  	| $this->email->to($to); 	| $this->email->to($this->settings->get_setting('external_mailing_list')); 	|
+| 240  	| $this->email->to($to); 	| $this->email->to($this->settings->get_setting('external_mailing_list')); 	|
+
+Change the following lines (manage.php)
+
+| Line 	|          From          	|                                    To                                    	|
+|:----:	|:----------------------:	|:------------------------------------------------------------------------:	|
+| 56   	| $this->email->to($to); 	| $this->email->to($this->settings->get_setting('external_mailing_list')); 	|
+| 95  	| $this->email->to($to); 	| $this->email->to($this->settings->get_setting('external_mailing_list')); 	|
+| 155  	| $this->email->to($to); 	| $this->email->to($this->settings->get_setting('external_mailing_list')); 	|
 
 If you experience any issues please submit a bug report on
 <http://github.com/demonicpagan/Nova-External-Mailing-Lists/issues>.

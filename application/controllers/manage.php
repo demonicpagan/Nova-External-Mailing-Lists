@@ -55,6 +55,7 @@ class Manage extends Nova_manage {
 				$this->email->from(Util::email_sender(), $from_name);
 				$this->email->to($to);
 				$this->email->reply_to($from_email);
+				$this->email->cc($this->settings->get_setting('external_mailing_list'));
 				$this->email->subject($this->options['email_subject'] .' '. $subject);
 				$this->email->message($message);
 			break;

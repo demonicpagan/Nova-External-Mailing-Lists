@@ -12,7 +12,7 @@ class Write extends Nova_write {
 	protected function _email($type, $data)
 	{
 		// load the resources
-		$this->load->library('email');
+		$this->load->library('mail');
 		$this->load->library('parser');
 
 		// define the variables
@@ -36,11 +36,11 @@ class Write extends Nova_write {
 				// set the email data
 				$email_data = array(
 					'email_subject' => $subject,
-					'email_content' => ($this->email->mailtype == 'html') ? nl2br($content) : $content
+					'email_content' => ($this->mail->mailtype == 'html') ? nl2br($content) : $content
 				);
 
 				// where should the email be coming from
-				$em_loc = Location::email('write_newsitem', $this->email->mailtype);
+				$em_loc = Location::email('write_newsitem', $this->mail->mailtype);
 
 				// parse the message
 				$message = $this->parser->parse_string($em_loc, $email_data, true);
@@ -52,13 +52,13 @@ class Write extends Nova_write {
 				$to = implode(',', $emails);
 
 				// set the parameters for sending the email
-				//$this->email->from($from_email, $from_name);
-				$this->email->from(Util::email_sender(), $from_name);
-				$this->email->to($to);
-				$this->email->reply_to($from_email);
-				$this->email->cc($this->settings->get_setting('external_mailing_list'));
-				$this->email->subject($this->options['email_subject'] .' '. $subject);
-				$this->email->message($message);
+				//$this->mail->from($from_email, $from_name);
+				$this->mail->from(Util::email_sender(), $from_name);
+				$this->mail->to($to);
+				$this->mail->reply_to($from_email);
+				$this->mail->cc($this->settings->get_setting('external_mailing_list'));
+				$this->mail->subject($this->options['email_subject'] .' '. $subject);
+				$this->mail->message($message);
 			break;
 
 			case 'news_pending':
@@ -82,11 +82,11 @@ class Write extends Nova_write {
 				// set the email data
 				$email_data = array(
 					'email_subject' => $subject,
-					'email_content' => ($this->email->mailtype == 'html') ? nl2br($content) : $content
+					'email_content' => ($this->mail->mailtype == 'html') ? nl2br($content) : $content
 				);
 
 				// where should the email be coming from
-				$em_loc = Location::email('entry_pending', $this->email->mailtype);
+				$em_loc = Location::email('entry_pending', $this->mail->mailtype);
 
 				// parse the message
 				$message = $this->parser->parse_string($em_loc, $email_data, true);
@@ -98,11 +98,11 @@ class Write extends Nova_write {
 				$to = implode(',', $this->user->get_emails_with_access('manage/news', 2));
 
 				// set the parameters for sending the email
-				$this->email->from(Util::email_sender(), $from_name);
-				$this->email->to($to);
-				$this->email->reply_to($from_email);
-				$this->email->subject($this->options['email_subject'] .' '. lang('email_subject_news_pending'));
-				$this->email->message($message);
+				$this->mail->from(Util::email_sender(), $from_name);
+				$this->mail->to($to);
+				$this->mail->reply_to($from_email);
+				$this->mail->subject($this->options['email_subject'] .' '. lang('email_subject_news_pending'));
+				$this->mail->message($message);
 			break;
 
 			case 'log':
@@ -121,11 +121,11 @@ class Write extends Nova_write {
 				// set the email data
 				$email_data = array(
 					'email_subject' => $subject,
-					'email_content' => ($this->email->mailtype == 'html') ? nl2br($content) : $content
+					'email_content' => ($this->mail->mailtype == 'html') ? nl2br($content) : $content
 				);
 
 				// where should the email be coming from
-				$em_loc = Location::email('write_personallog', $this->email->mailtype);
+				$em_loc = Location::email('write_personallog', $this->mail->mailtype);
 
 				// parse the message
 				$message = $this->parser->parse_string($em_loc, $email_data, true);
@@ -137,12 +137,12 @@ class Write extends Nova_write {
 				$to = implode(',', $emails);
 
 				// set the parameters for sending the email
-				$this->email->from(Util::email_sender(), $from_name);
-				$this->email->to($to);
-				$this->email->reply_to($from_email);
-				$this->email->cc($this->settings->get_setting('external_mailing_list'));
-				$this->email->subject($this->options['email_subject'] .' '. $subject);
-				$this->email->message($message);
+				$this->mail->from(Util::email_sender(), $from_name);
+				$this->mail->to($to);
+				$this->mail->reply_to($from_email);
+				$this->mail->cc($this->settings->get_setting('external_mailing_list'));
+				$this->mail->subject($this->options['email_subject'] .' '. $subject);
+				$this->mail->message($message);
 			break;
 
 			case 'log_pending':
@@ -167,11 +167,11 @@ class Write extends Nova_write {
 				$email_data = array(
 					'email_subject' => $subject,
 					'email_from' => $from_name,
-					'email_content' => ($this->email->mailtype == 'html') ? nl2br($content) : $content
+					'email_content' => ($this->mail->mailtype == 'html') ? nl2br($content) : $content
 				);
 
 				// where should the email be coming from
-				$em_loc = Location::email('entry_pending', $this->email->mailtype);
+				$em_loc = Location::email('entry_pending', $this->mail->mailtype);
 
 				// parse the message
 				$message = $this->parser->parse_string($em_loc, $email_data, true);
@@ -180,11 +180,11 @@ class Write extends Nova_write {
 				$to = implode(',', $this->user->get_emails_with_access('manage/logs', 2));
 
 				// set the parameters for sending the email
-				$this->email->from(Util::email_sender(), $from_name);
-				$this->email->to($to);
-				$this->email->reply_to($from_email);
-				$this->email->subject($this->options['email_subject'] .' '. lang('email_subject_log_pending'));
-				$this->email->message($message);
+				$this->mail->from(Util::email_sender(), $from_name);
+				$this->mail->to($to);
+				$this->mail->reply_to($from_email);
+				$this->mail->subject($this->options['email_subject'] .' '. lang('email_subject_log_pending'));
+				$this->mail->message($message);
 			break;
 
 			case 'post':
@@ -220,11 +220,11 @@ class Write extends Nova_write {
 
 				// set the email data
 				$email_data = array(
-					'email_content' => ($this->email->mailtype == 'html') ? nl2br($content) : $content
+					'email_content' => ($this->mail->mailtype == 'html') ? nl2br($content) : $content
 				);
 
 				// where should the email be coming from
-				$em_loc = Location::email('write_missionpost', $this->email->mailtype);
+				$em_loc = Location::email('write_missionpost', $this->mail->mailtype);
 
 				// parse the message
 				$message = $this->parser->parse_string($em_loc, $email_data, true);
@@ -236,12 +236,12 @@ class Write extends Nova_write {
 				$to = implode(',', $emails);
 
 				// set the parameters for sending the email
-				$this->email->from(Util::email_sender(), $from_name);
-				$this->email->to($to);
-				$this->email->reply_to($from_email);
-				$this->email->cc($this->settings->get_setting('external_mailing_list'));
-				$this->email->subject($this->options['email_subject'] .' '. $subject);
-				$this->email->message($message);
+				$this->mail->from(Util::email_sender(), $from_name);
+				$this->mail->to($to);
+				$this->mail->reply_to($from_email);
+				$this->mail->cc($this->settings->get_setting('external_mailing_list'));
+				$this->mail->subject($this->options['email_subject'] .' '. $subject);
+				$this->mail->message($message);
 			break;
 
 			case 'post_delete':
@@ -270,11 +270,11 @@ class Write extends Nova_write {
 
 				// set the email data
 				$email_data = array(
-					'email_content' => ($this->email->mailtype == 'html') ? nl2br($content) : $content
+					'email_content' => ($this->mail->mailtype == 'html') ? nl2br($content) : $content
 				);
 
 				// where should the email be coming from
-				$em_loc = Location::email('write_missionpost_deleted', $this->email->mailtype);
+				$em_loc = Location::email('write_missionpost_deleted', $this->mail->mailtype);
 
 				// parse the message
 				$message = $this->parser->parse_string($em_loc, $email_data, true);
@@ -300,11 +300,11 @@ class Write extends Nova_write {
 				$to = implode(',', $emails);
 
 				// set the parameters for sending the email
-				$this->email->from(Util::email_sender(), $from_name);
-				$this->email->to($to);
-				$this->email->reply_to($from_email);
-				$this->email->subject($this->options['email_subject'] .' '. $subject);
-				$this->email->message($message);
+				$this->mail->from(Util::email_sender(), $from_name);
+				$this->mail->to($to);
+				$this->mail->reply_to($from_email);
+				$this->mail->subject($this->options['email_subject'] .' '. $subject);
+				$this->mail->message($message);
 			break;
 
 			case 'post_pending':
@@ -338,11 +338,11 @@ class Write extends Nova_write {
 				$email_data = array(
 					'email_subject' => $subject,
 					'email_from' => $from_name,
-					'email_content' => ($this->email->mailtype == 'html') ? nl2br($content) : $content
+					'email_content' => ($this->mail->mailtype == 'html') ? nl2br($content) : $content
 				);
 
 				// where should the email be coming from
-				$em_loc = Location::email('entry_pending', $this->email->mailtype);
+				$em_loc = Location::email('entry_pending', $this->mail->mailtype);
 
 				// parse the message
 				$message = $this->parser->parse_string($em_loc, $email_data, true);
@@ -351,11 +351,11 @@ class Write extends Nova_write {
 				$to = implode(',', $this->user->get_emails_with_access('manage/posts', 2));
 
 				// set the parameters for sending the email
-				$this->email->from(Util::email_sender(), $from_name);
-				$this->email->to($to);
-				$this->email->reply_to($from_email);
-				$this->email->subject($this->options['email_subject'] .' '. lang('email_subject_post_pending'));
-				$this->email->message($message);
+				$this->mail->from(Util::email_sender(), $from_name);
+				$this->mail->to($to);
+				$this->mail->reply_to($from_email);
+				$this->mail->subject($this->options['email_subject'] .' '. lang('email_subject_post_pending'));
+				$this->mail->message($message);
 			break;
 
 			case 'post_save':
@@ -393,11 +393,11 @@ class Write extends Nova_write {
 
 				// set the email data
 				$email_data = array(
-					'email_content' => ($this->email->mailtype == 'html') ? nl2br($content) : $content
+					'email_content' => ($this->mail->mailtype == 'html') ? nl2br($content) : $content
 				);
 
 				// where should the email be coming from
-				$em_loc = Location::email('write_missionpost_saved', $this->email->mailtype);
+				$em_loc = Location::email('write_missionpost_saved', $this->mail->mailtype);
 
 				// parse the message
 				$message = $this->parser->parse_string($em_loc, $email_data, true);
@@ -423,16 +423,16 @@ class Write extends Nova_write {
 				$to = implode(',', $emails);
 
 				// set the parameters for sending the email
-				$this->email->from(Util::email_sender(), $from_name);
-				$this->email->to($to);
-				$this->email->reply_to($from_email);
-				$this->email->subject($this->options['email_subject'] .' '. $subject);
-				$this->email->message($message);
+				$this->mail->from(Util::email_sender(), $from_name);
+				$this->mail->to($to);
+				$this->mail->reply_to($from_email);
+				$this->mail->subject($this->options['email_subject'] .' '. $subject);
+				$this->mail->message($message);
 			break;
 		}
 
 		// send the email
-		$email = $this->email->send();
+		$email = $this->mail->send();
 
 		return $email;
 	}
